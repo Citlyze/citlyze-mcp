@@ -1,0 +1,61 @@
+{
+  "manifest_version": "0.3",
+  "name": "citlyze",
+  "display_name": "Citlyze",
+  "version": "1.0.0",
+  "description": "Ask your AI search visibility data anything: prompts, citations, competitors, and recommendations from Citlyze.",
+  "long_description": "Citlyze tracks how your brand shows up in AI search engines like ChatGPT, Claude, Perplexity, and Google AI Overviews. This extension connects Claude Desktop to your Citlyze workspace so you can explore visibility scores, tracked prompts, cited domains, competitor comparisons, optimization recommendations, and AI crawler activity in plain language.\n\nAll tools are read-only: nothing in your workspace can be modified through this extension. You need a Citlyze account with API access and a workspace API key, created at https://app.citlyze.com/workspace-settings.",
+  "author": {
+    "name": "Citlyze",
+    "url": "https://www.citlyze.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citlyze/citlyze-mcp.git"
+  },
+  "homepage": "https://www.citlyze.com",
+  "documentation": "https://www.citlyze.com/docs/mcp/overview",
+  "support": "https://www.citlyze.com/docs/mcp/troubleshooting",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "CITLYZE_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "get_workspace_overview", "description": "Workspace name, target brand, active prompt/location/engine counts, competitors, and the latest completed measurement window." },
+    { "name": "list_prompts", "description": "List tracked prompts with text, intent, tier, and active state." },
+    { "name": "list_measurement_windows", "description": "List measurement windows (tracking snapshots), newest first." },
+    { "name": "get_visibility_overview", "description": "Headline AI visibility metrics per brand and engine for a measurement window." },
+    { "name": "get_prompt_visibility", "description": "Per-engine and per-location visibility metrics for a single tracked prompt." },
+    { "name": "list_citations", "description": "Domains cited in AI answers, grouped with citation counts and sample URLs." },
+    { "name": "list_recommendations", "description": "AI visibility optimization recommendations, highest priority first." },
+    { "name": "list_competitor_visibility", "description": "Compare AI visibility across the target brand and tracked competitors." },
+    { "name": "list_crawler_events", "description": "Daily AI crawler visits (GPTBot, ClaudeBot, PerplexityBot, Bingbot, and more) on tracked sites." }
+  ],
+  "tools_generated": false,
+  "keywords": ["seo", "aeo", "geo", "ai-search", "visibility", "citations", "analytics", "marketing"],
+  "license": "MIT",
+  "privacy_policies": ["https://www.citlyze.com/privacy-policy"],
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Citlyze API key",
+      "description": "Workspace API key from https://app.citlyze.com/workspace-settings (starts with aeo_live_). Requires a plan with API access.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}

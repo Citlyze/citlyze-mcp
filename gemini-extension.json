@@ -1,0 +1,15 @@
+{
+  "name": "citlyze",
+  "version": "1.0.0",
+  "description": "Query your Citlyze AI search visibility data: tracked prompts, citations, competitor comparisons, recommendations, and AI crawler activity.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "citlyze": {
+      "httpUrl": "https://app.citlyze.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CITLYZE_API_KEY}"
+      },
+      "timeout": 30000
+    }
+  }
+}
