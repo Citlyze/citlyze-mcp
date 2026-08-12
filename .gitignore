@@ -1,2 +1,7 @@
 dist/
 node_modules/
+*.pem
+*.key
+*.p12
+.env
+.env.*
