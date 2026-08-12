@@ -70,6 +70,10 @@ For clients that only support stdio servers, bridge with [`mcp-remote`](https://
 }
 ```
 
+## Agent skills
+
+Ready-made skills that use these MCP tools (visibility reports, citation gap analysis, prompt audits, action plans) plus a standalone AEO page audit live in [Citlyze/citlyze-skills](https://github.com/citlyze/citlyze-skills). They follow the open SKILL.md standard, so they work in Claude Code, Codex, Cursor, Gemini CLI, and any compatible agent.
+
 ## Support and privacy
 
 - Documentation: https://www.citlyze.com/docs/mcp/overview
